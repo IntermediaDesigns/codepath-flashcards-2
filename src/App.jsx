@@ -1,8 +1,10 @@
 // src/App.jsx
-import React, { useState } from "react";
+import { useState } from "react";
 import CardSet from "./components/CardSet";
 import Card from "./components/Card";
 import { cardSets } from "./data/cardSets";
+import "./index.css";
+
 
 const categories = ["HTML", "CSS", "JavaScript", "React"];
 const difficulties = ["Beginner", "Intermediate", "Advanced"];
@@ -39,14 +41,14 @@ const App = () => {
   };
 
   const renderCategoryButtons = () => (
-    <div className="space-y-4">
-      <h2 className="text-2xl font-bold mb-4">Select a Category:</h2>
+    <div className="space-y-6 flex flex-col">
+      <h2 className="text-2xl font-bold text-gray-800">Select a Category:</h2>
       <div className="grid grid-cols-2 gap-4">
         {categories.map((category) => (
           <button
             key={category}
             onClick={() => setSelectedCategory(category)}
-            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
+            className="px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition-colors duration-200"
           >
             {category}
           </button>
@@ -56,32 +58,38 @@ const App = () => {
   );
 
   const renderDifficultyButtons = () => (
-    <div className="space-y-4">
-      <h2 className="text-2xl font-bold mb-4">Select Difficulty:</h2>
+    <div className="space-y-6">
+      <h2 className="text-2xl font-bold text-gray-800">Select Difficulty:</h2>
       <div className="grid grid-cols-3 gap-4">
         {difficulties.map((difficulty) => (
           <button
             key={difficulty}
             onClick={() => setSelectedDifficulty(difficulty)}
-            className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition-colors"
+            className="px-6 py-3 bg-green-500 text-white font-semibold rounded-lg shadow-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-75 transition-colors duration-200"
           >
             {difficulty}
           </button>
         ))}
       </div>
+      <button
+            onClick={resetSelection}
+            className="px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition-colors duration-200"
+          >
+            Back to Categories
+          </button>
     </div>
   );
 
   const renderFlashcards = () => {
     if (!filteredCardSet || filteredCardSet.cards.length === 0) {
       return (
-        <div className="text-center">
-          <p className="text-xl font-semibold mb-4">
+        <div className="text-center space-y-4">
+          <p className="text-xl font-semibold text-gray-700">
             No flashcards available for this category and difficulty.
           </p>
           <button
             onClick={resetSelection}
-            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
+            className="px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition-colors duration-200"
           >
             Back to Categories
           </button>
@@ -90,7 +98,7 @@ const App = () => {
     }
 
     return (
-      <div className="space-y-4">
+      <div className="space-y-6">
         <CardSet
           set={filteredCardSet}
           totalCards={filteredCardSet.cards.length}
@@ -100,16 +108,16 @@ const App = () => {
           isFlipped={isFlipped}
           onFlip={flipCard}
         />
-        <div className="flex justify-between mt-4">
+        <div className="flex justify-between mt-6">
           <button
             onClick={nextCard}
-            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
+            className="px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition-colors duration-200"
           >
             Next Card
           </button>
           <button
             onClick={resetSelection}
-            className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition-colors"
+            className="px-6 py-3 bg-red-500 text-white font-semibold rounded-lg shadow-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-75 transition-colors duration-200"
           >
             Back to Categories
           </button>
@@ -119,9 +127,9 @@ const App = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 py-6 flex flex-col items-center justify-center">
-      <div className="w-full max-w-xl bg-white rounded-lg shadow-md p-6">
-        <h1 className="text-3xl font-bold mb-6 text-center">Flashcard App</h1>
+    <div className="min-h-screen bg-gradient-to-br from-blue-100 to-purple-100 py-12 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center">
+      <div className="w-full max-w-2xl bg-white rounded-2xl shadow-xl p-8">
+        <h1 className="text-4xl font-bold mb-8 text-center text-gray-800">Flashcard App</h1>
         {!selectedCategory && renderCategoryButtons()}
         {selectedCategory && !selectedDifficulty && renderDifficultyButtons()}
         {selectedCategory && selectedDifficulty && renderFlashcards()}

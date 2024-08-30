@@ -1,5 +1,5 @@
 // src/components/CardSet.jsx
-import React from 'react';
+import PropTypes from 'prop-types';
 
 const CardSet = ({ set, totalCards }) => {
   return (
@@ -19,6 +19,11 @@ const CardSet = ({ set, totalCards }) => {
       </div>
     </div>
   );
+};
+
+CardSet.propTypes = {
+  set: PropTypes.object.isRequired,
+  totalCards: PropTypes.number.isRequired,
 };
 
 export default CardSet;
