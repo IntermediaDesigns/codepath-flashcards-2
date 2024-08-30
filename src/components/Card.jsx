@@ -4,19 +4,18 @@ import PropTypes from "prop-types";
 const Card = ({ card, isFlipped, onFlip }) => {
   return (
     <div
-      className="bg-white border rounded-lg shadow-md p-6 cursor-pointer transition-all duration-300 ease-in-out transform hover:scale-105"
-      style={{ height: "200px", width: "300px" }}
+      className="bg-white border rounded-lg shadow-lg p-6 h-64 w-11/12 mx-auto cursor-pointer transition-all duration-300 ease-in-out transform hover:scale-105"
       onClick={onFlip}
     >
-      <div className="flex items-center justify-center h-full">
+      <div className="flex flex-col items-center justify-start h-full">
         {card.image && (
           <img
             src={card.image}
             alt={isFlipped ? card.answer : card.question}
-            className="max-h-full max-w-full object-contain mb-2"
+            className="w-20 h-auto object-contain mb-7" // Updated classes for 50px size
           />
         )}
-        <p className="text-xl font-semibold text-center">
+        <p className="text-3xl font-semibold text-center">
           {isFlipped ? card.answer : card.question}
         </p>
       </div>

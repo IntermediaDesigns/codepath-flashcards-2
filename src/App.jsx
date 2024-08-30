@@ -5,7 +5,6 @@ import Card from "./components/Card";
 import { cardSets } from "./data/cardSets";
 import "./index.css";
 
-
 const categories = ["HTML", "CSS", "JavaScript", "React"];
 const difficulties = ["Beginner", "Intermediate", "Advanced"];
 
@@ -59,24 +58,28 @@ const App = () => {
 
   const renderDifficultyButtons = () => (
     <div className="space-y-6">
-      <h2 className="text-2xl font-bold text-gray-800">Select Difficulty:</h2>
-      <div className="grid grid-cols-3 gap-4">
-        {difficulties.map((difficulty) => (
-          <button
-            key={difficulty}
-            onClick={() => setSelectedDifficulty(difficulty)}
-            className="px-6 py-3 bg-green-500 text-white font-semibold rounded-lg shadow-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-75 transition-colors duration-200"
-          >
-            {difficulty}
-          </button>
-        ))}
+      <div className="flex flex-col gap-4">
+        <h2 className="text-2xl font-bold text-gray-800">Select Difficulty:</h2>
+        <div className="grid grid-cols-3 gap-4">
+          {difficulties.map((difficulty) => (
+            <button
+              key={difficulty}
+              onClick={() => setSelectedDifficulty(difficulty)}
+              className="px-6 py-3 bg-green-500 text-white font-semibold rounded-lg shadow-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-75 transition-colors duration-200"
+            >
+              {difficulty}
+            </button>
+          ))}
+        </div>
       </div>
-      <button
-            onClick={resetSelection}
-            className="px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition-colors duration-200"
-          >
-            Back to Categories
-          </button>
+      <div className="flex items-center justify-center">
+        <button
+          onClick={resetSelection}
+          className="px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition-colors duration-200"
+        >
+          Back to Categories
+        </button>
+      </div>
     </div>
   );
 
@@ -98,7 +101,7 @@ const App = () => {
     }
 
     return (
-      <div className="space-y-6">
+      <div className="space-y-8">
         <CardSet
           set={filteredCardSet}
           totalCards={filteredCardSet.cards.length}
@@ -127,9 +130,11 @@ const App = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-100 to-purple-100 py-12 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center">
-      <div className="w-full max-w-2xl bg-white rounded-2xl shadow-xl p-8">
-        <h1 className="text-4xl font-bold mb-8 text-center text-gray-800">Flashcard App</h1>
+    <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center">
+      <div className="w-full max-w-3xl bg-white bg-opacity-50 backdrop-filter backdrop-blur-lg rounded-2xl shadow-xl p-8">
+        <h1 className="text-4xl font-bold mb-8 text-center text-gray-800">
+          Flashcard App
+        </h1>
         {!selectedCategory && renderCategoryButtons()}
         {selectedCategory && !selectedDifficulty && renderDifficultyButtons()}
         {selectedCategory && selectedDifficulty && renderFlashcards()}

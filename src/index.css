@@ -9,5 +9,9 @@
 }
 
 body {
+  background-image: url('/purp.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   font-family: 'Open Sans', sans-serif;
 }
