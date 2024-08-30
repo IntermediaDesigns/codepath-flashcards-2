@@ -1,11 +1,11 @@
 // src/App.jsx
-import React, { useState } from 'react';
-import CardSet from './components/CardSet';
-import Card from './components/Card';
-import { cardSets } from './data/cardSets';
+import React, { useState } from "react";
+import CardSet from "./components/CardSet";
+import Card from "./components/Card";
+import { cardSets } from "./data/cardSets";
 
-const categories = ['HTML', 'CSS', 'JavaScript', 'React'];
-const difficulties = ['Beginner', 'Intermediate', 'Advanced'];
+const categories = ["HTML", "CSS", "JavaScript", "React"];
+const difficulties = ["Beginner", "Intermediate", "Advanced"];
 
 const App = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -21,7 +21,8 @@ const App = () => {
   };
 
   const filteredCardSet = cardSets.find(
-    set => set.category === selectedCategory && set.difficulty === selectedDifficulty
+    (set) =>
+      set.category === selectedCategory && set.difficulty === selectedDifficulty
   );
 
   const flipCard = () => {
@@ -29,10 +30,12 @@ const App = () => {
   };
 
   const nextCard = () => {
-    setIsFlipped(false);
-    setCurrentCardIndex((prevIndex) =>
-      (prevIndex + 1) % filteredCardSet.cards.length
-    );
+    if (filteredCardSet && filteredCardSet.cards.length > 0) {
+      setIsFlipped(false);
+      setCurrentCardIndex(
+        (prevIndex) => (prevIndex + 1) % filteredCardSet.cards.length
+      );
+    }
   };
 
   const renderCategoryButtons = () => (
@@ -69,39 +72,56 @@ const App = () => {
     </div>
   );
 
-  const renderFlashcards = () => (
-    <div className="space-y-4">
-      <CardSet
-        set={filteredCardSet}
-        totalCards={filteredCardSet.cards.length}
-      />
-      <Card
-        card={filteredCardSet.cards[currentCardIndex]}
-        isFlipped={isFlipped}
-        onFlip={flipCard}
-      />
-      <div className="flex justify-between mt-4">
-        <button
-          onClick={nextCard}
-          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
-        >
-          Next Card
-        </button>
-        <button
-          onClick={resetSelection}
-          className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition-colors"
-        >
-          Back to Categories
-        </button>
+  const renderFlashcards = () => {
+    if (!filteredCardSet || filteredCardSet.cards.length === 0) {
+      return (
+        <div className="text-center">
+          <p className="text-xl font-semibold mb-4">
+            No flashcards available for this category and difficulty.
+          </p>
+          <button
+            onClick={resetSelection}
+            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
+          >
+            Back to Categories
+          </button>
+        </div>
+      );
+    }
+
+    return (
+      <div className="space-y-4">
+        <CardSet
+          set={filteredCardSet}
+          totalCards={filteredCardSet.cards.length}
+        />
+        <Card
+          card={filteredCardSet.cards[currentCardIndex]}
+          isFlipped={isFlipped}
+          onFlip={flipCard}
+        />
+        <div className="flex justify-between mt-4">
+          <button
+            onClick={nextCard}
+            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
+          >
+            Next Card
+          </button>
+          <button
+            onClick={resetSelection}
+            className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition-colors"
+          >
+            Back to Categories
+          </button>
+        </div>
       </div>
-    </div>
-  );
+    );
+  };
 
   return (
     <div className="min-h-screen bg-gray-100 py-6 flex flex-col items-center justify-center">
       <div className="w-full max-w-xl bg-white rounded-lg shadow-md p-6">
         <h1 className="text-3xl font-bold mb-6 text-center">Flashcard App</h1>
-        
         {!selectedCategory && renderCategoryButtons()}
         {selectedCategory && !selectedDifficulty && renderDifficultyButtons()}
         {selectedCategory && selectedDifficulty && renderFlashcards()}

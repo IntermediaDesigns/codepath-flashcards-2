@@ -4,6 +4,7 @@ export const cardSets = [
     {
         title: "HTML Basics",
         description: "Learn fundamental HTML concepts",
+        category: "HTML",
         difficulty: "Beginner",
         cards: [
           {
@@ -61,6 +62,7 @@ export const cardSets = [
     {
         title: "HTML Basics",
         description: "Learn fundamental HTML concepts",
+        category: "HTML",
         difficulty: "Intermediate", 
         cards: [
           {
@@ -118,6 +120,7 @@ export const cardSets = [
       {
         title: "HTML Basics",
         description: "Learn fundamental HTML concepts",
+        category: "HTML",
         difficulty: "Advanced",
         cards: [
           {
@@ -175,6 +178,7 @@ export const cardSets = [
     {
       title: "CSS Basics",
       description: "Learn fundamental CSS concepts",
+      category: "CSS",
       difficulty: "Beginner",
       cards: [
         {
@@ -237,6 +241,7 @@ export const cardSets = [
     {
       title: "CSS Basics",
       description: "Learn fundamental CSS concepts",
+      category: "CSS",
       difficulty: "Intermediate",
       cards: [
         {
@@ -294,6 +299,7 @@ export const cardSets = [
     {
       title: "CSS Basics",
       description: "Learn fundamental CSS concepts",
+      category: "CSS",
       difficulty: "Advanced",
       cards: [
         {
@@ -351,6 +357,7 @@ export const cardSets = [
     {
       title: "React Basics",
       description: "Learn fundamental React concepts",
+      category: "React",
       difficulty: "Beginner",
       cards: [
         {
@@ -408,6 +415,7 @@ export const cardSets = [
     {
       title: "React Basics",
       description: "Learn fundamental React concepts",
+      category: "React",
       difficulty: "Intermediate",
       cards: [
         {
@@ -465,6 +473,7 @@ export const cardSets = [
     {
       title: "React Basics",
       description: "Learn fundamental React concepts",
+      category: "React",
       difficulty: "Advanced",
       cards: [
         {
@@ -522,6 +531,7 @@ export const cardSets = [
     {
       title: "JavaScript Basics",
       description: "Learn fundamental JavaScript concepts",
+      category: "JavaScript",
       difficulty: "Beginner",
       cards: [
         {
@@ -579,6 +589,7 @@ export const cardSets = [
     {
       title: "JavaScript Basics",
       description: "Learn fundamental JavaScript concepts",
+      category: "JavaScript",
       difficulty: "Intermediate",
       cards: [
         {
@@ -636,6 +647,7 @@ export const cardSets = [
     {
       title: "JavaScript Basics",
       description: "Learn fundamental JavaScript concepts",
+      category: "JavaScript",
       difficulty: "Advanced",
       cards: [
         {
