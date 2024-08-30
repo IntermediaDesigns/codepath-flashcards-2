@@ -3,7 +3,6 @@ import { useState } from "react";
 import CardSet from "./components/CardSet";
 import Card from "./components/Card";
 import { cardSets } from "./data/cardSets";
-import "./index.css";
 
 const categories = ["HTML", "CSS", "JavaScript", "React"];
 const difficulties = ["Beginner", "Intermediate", "Advanced"];
@@ -47,7 +46,7 @@ const App = () => {
           <button
             key={category}
             onClick={() => setSelectedCategory(category)}
-            className="px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition-colors duration-200"
+            className="px-6 py-3 bg-purple-900 text-white font-semibold rounded-lg shadow-md hover:bg-pink-500 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition-colors duration-200"
           >
             {category}
           </button>
@@ -65,7 +64,7 @@ const App = () => {
             <button
               key={difficulty}
               onClick={() => setSelectedDifficulty(difficulty)}
-              className="px-6 py-3 bg-green-500 text-white font-semibold rounded-lg shadow-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-75 transition-colors duration-200"
+              className="px-6 py-3 bg-pink-500 text-white font-semibold rounded-lg shadow-md hover:bg-purple-900 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-opacity-75 transition-colors duration-200 hover:scale-105"
             >
               {difficulty}
             </button>
@@ -75,7 +74,7 @@ const App = () => {
       <div className="flex items-center justify-center">
         <button
           onClick={resetSelection}
-          className="px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition-colors duration-200"
+          className="px-6 py-3 bg-purple-900 text-white font-semibold rounded-lg shadow-md hover:bg-pink-500 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition-colors duration-200"
         >
           Back to Categories
         </button>
@@ -92,7 +91,7 @@ const App = () => {
           </p>
           <button
             onClick={resetSelection}
-            className="px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition-colors duration-200"
+            className="px-6 py-3 bg-purple-900 text-white font-semibold rounded-lg shadow-md hover:bg-pink-500 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition-colors duration-200"
           >
             Back to Categories
           </button>
@@ -114,13 +113,13 @@ const App = () => {
         <div className="flex justify-between mt-6">
           <button
             onClick={nextCard}
-            className="px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition-colors duration-200"
+            className="px-6 py-3 bg-purple-900 text-white font-semibold rounded-lg shadow-md hover:bg-pink-500 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition-colors duration-200"
           >
             Next Card
           </button>
           <button
             onClick={resetSelection}
-            className="px-6 py-3 bg-red-500 text-white font-semibold rounded-lg shadow-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-75 transition-colors duration-200"
+            className="px-6 py-3 bg-pink-500 text-white font-semibold rounded-lg shadow-md hover:bg-purple-900 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-75 transition-colors duration-200"
           >
             Back to Categories
           </button>
@@ -131,9 +130,9 @@ const App = () => {
 
   return (
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center">
-      <div className="w-full max-w-3xl bg-white bg-opacity-50 backdrop-filter backdrop-blur-lg rounded-2xl shadow-xl p-8">
-        <h1 className="text-4xl font-bold mb-8 text-center text-gray-800">
-          Flashcard App
+      <div className="w-full max-w-3xl bg-white bg-opacity-60 backdrop-filter backdrop-blur-lg rounded-2xl shadow-xl p-8">
+        <h1 className="text-5xl font-bold mb-8 text-center text-black">
+          Flash Tutor
         </h1>
         {!selectedCategory && renderCategoryButtons()}
         {selectedCategory && !selectedDifficulty && renderDifficultyButtons()}
