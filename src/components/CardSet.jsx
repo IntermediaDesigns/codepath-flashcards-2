@@ -1,7 +1,7 @@
 // src/components/CardSet.jsx
 import React from 'react';
 
-const CardSet = ({ set, totalCards, onChangeSet }) => {
+const CardSet = ({ set, totalCards }) => {
   return (
     <div className="mb-6">
       <h2 className="text-2xl font-bold mb-2">{set.title}</h2>
