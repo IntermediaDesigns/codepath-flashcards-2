@@ -6,8 +6,8 @@ const CardSet = ({ set, totalCards, currentCardNumber }) => {
     <div className="mb-6">
         <h2 className="text-2xl font-bold mb-2">{set.title}</h2>
         <p className="text-gray-800 mb-2">{set.description}</p>
-        <p className="text-sm text-gray-800">
-          Total cards: {currentCardNumber} of {totalCards}
+        <p className="text-sm text-black font-bold">
+          Total cards: <span className="font-normal">{currentCardNumber} of {totalCards}</span>
         </p>
         <div className="mt-2">
           <span className="text-sm font-semibold mr-2">Difficulty:</span>

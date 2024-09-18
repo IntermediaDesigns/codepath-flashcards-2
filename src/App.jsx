@@ -133,7 +133,7 @@ const App = () => {
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center">
       <div className="w-full max-w-3xl bg-white bg-opacity-60 backdrop-filter backdrop-blur-lg rounded-2xl shadow-xl p-8">
         <h1 className="text-5xl font-bold mb-8 text-center text-black">
-          Flash Tutor
+          Flash Tech Tutor
         </h1>
         {!selectedCategory && renderCategoryButtons()}
         {selectedCategory && !selectedDifficulty && renderDifficultyButtons()}
