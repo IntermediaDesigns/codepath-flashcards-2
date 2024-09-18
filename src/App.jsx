@@ -104,13 +104,14 @@ const App = () => {
         <CardSet
           set={filteredCardSet}
           totalCards={filteredCardSet.cards.length}
+          currentCardNumber={currentCardIndex + 1}
         />
         <Card
           card={filteredCardSet.cards[currentCardIndex]}
           isFlipped={isFlipped}
           onFlip={flipCard}
         />
-        <div className="flex justify-between mt-6">
+        <div className="flex justify-between items-center mt-6">
           <button
             onClick={nextCard}
             className="px-6 py-3 bg-purple-900 text-white font-semibold rounded-lg shadow-md hover:bg-pink-500 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition-colors duration-200"

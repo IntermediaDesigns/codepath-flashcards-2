@@ -15,7 +15,7 @@ const Card = ({ card, isFlipped, onFlip }) => {
             className="w-20 h-auto object-contain mb-7" // Updated classes for 50px size
           />
         )}
-        <p className="text-2xl font-semibold text-center">
+        <p className={`text-2xl text-center ${isFlipped ? "font-normal" : "font-semibold"}`}>
           {isFlipped ? card.answer : card.question}
         </p>
       </div>
