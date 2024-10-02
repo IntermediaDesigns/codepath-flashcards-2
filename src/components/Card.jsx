@@ -12,7 +12,7 @@ const Card = ({ card, isFlipped, onFlip }) => {
           <img
             src={card.image}
             alt={isFlipped ? card.answer : card.question}
-            className="w-20 h-auto object-contain mb-7" // Updated classes for 50px size
+            className="w-20 h-auto object-contain mb-7"
           />
         )}
         <p className={`text-2xl text-center ${isFlipped ? "font-normal" : "font-semibold"}`}>
