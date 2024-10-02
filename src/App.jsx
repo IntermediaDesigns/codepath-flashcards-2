@@ -82,16 +82,34 @@ const App = () => {
     }
   };
 
+  const analyzeAnswer = (userAnswer, correctAnswer) => {
+    const userKeywords = userAnswer.toLowerCase().split(/\s+/);
+    const correctKeywords = correctAnswer.toLowerCase().split(/\s+/);
+    
+    const matchedKeywords = userKeywords.filter(word => correctKeywords.includes(word));
+    const matchPercentage = matchedKeywords.length / correctKeywords.length;
+
+    if (matchPercentage === 1) {
+      return { isCorrect: true, message: "Perfect! Your answer is spot on!" };
+    } else if (matchPercentage >= 0.8) {
+      return { isCorrect: true, message: "Correct! Your answer captures the main points." };
+    } else if (matchPercentage >= 0.6) {
+      return { isCorrect: true, message: "Mostly correct. You've got the right idea!" };
+    } else if (matchPercentage >= 0.4) {
+      return { isCorrect: false, message: "Partially correct, but needs improvement." };
+    } else {
+      return { isCorrect: false, message: "Incorrect. Try again!" };
+    }
+  };
+
   const handleSubmit = () => {
     if (shuffledCards.length > 0) {
       const currentCard = shuffledCards[currentCardIndex];
-      const isAnswerCorrect =
-        userAnswer.toLowerCase().trim() ===
-        currentCard.answer.toLowerCase().trim();
-      setIsCorrect(isAnswerCorrect);
+      const analysis = analyzeAnswer(userAnswer, currentCard.answer);
+      setIsCorrect(analysis.isCorrect);
       setIsFlipped(true);
 
-      if (isAnswerCorrect) {
+      if (analysis.isCorrect) {
         const newStreak = streak + 1;
         setStreak(newStreak);
         setLongestStreak(Math.max(longestStreak, newStreak));
@@ -179,7 +197,7 @@ const App = () => {
                 isCorrect ? "text-green-600" : "text-red-600"
               }`}
             >
-              {isCorrect ? "Correct!" : "Incorrect. Try again!"}
+              {analyzeAnswer(userAnswer, shuffledCards[currentCardIndex].answer).message}
             </div>
           )}
         </div>
